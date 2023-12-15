@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Card, Modal, Button, Row, Col } from 'react-bootstrap';
 import { BsPlay } from 'react-icons/bs';
+import { GoChevronDown } from "react-icons/go";
 import './styles/SeriesList.css';
 
 // Importa los conjuntos de datos
@@ -15,6 +16,7 @@ const SeriesList = ({ dataSet }) => {
     const [selectedSeries, setSelectedSeries] = useState(null);
     const [hoveredEpisode, setHoveredEpisode] = useState(null);
     const [showEpisodes, setShowEpisodes] = useState(false);
+    const [visibleEpisodes, setVisibleEpisodes] = useState(10); // Ajusta aquí el número de episodios iniciales visibles
 
     const handleShowModal = (series) => {
         setSelectedSeries(series);
@@ -24,11 +26,16 @@ const SeriesList = ({ dataSet }) => {
     const handleCloseModal = () => {
         setSelectedSeries(null);
         setShowModal(false);
-        setShowEpisodes(false); // Asegúrate de ocultar los episodios al cerrar el modal
+        setShowEpisodes(false);
+        setVisibleEpisodes(10); // Ajusta aquí el número de episodios iniciales visibles al cerrar el modal
     };
 
     const handleToggleEpisodes = () => {
         setShowEpisodes(!showEpisodes);
+    };
+
+    const handleShowMoreEpisodes = () => {
+        setVisibleEpisodes(visibleEpisodes + 10); // Ajusta aquí la cantidad de episodios adicionales que se mostrarán al hacer clic en la flecha
     };
 
     return (
@@ -45,7 +52,6 @@ const SeriesList = ({ dataSet }) => {
                             <Card.Img variant="top" src={serie.image} />
                             <div className="card-title-overlay" style={{ fontSize: '20px' }}>{serie.title}</div>
                         </div>
-
                     </Card>
                 ))}
             </div>
@@ -101,22 +107,25 @@ const SeriesList = ({ dataSet }) => {
                             </i>
                             <hr className="text-white" />
                             <Row>
-                                {showEpisodes && selectedSeries.episodes.map((episode) => (
+                                {showEpisodes && selectedSeries.episodes.slice(0, visibleEpisodes).map((episode) => (
                                     <Col key={episode.number} md={12}>
                                         <Row className='modal-section'>
                                             <Col md={4}>
-                                                <div
-                                                    className='image-container'
-                                                    onMouseEnter={() => setHoveredEpisode(episode.number)}
-                                                    onMouseLeave={() => setHoveredEpisode(null)}
-                                                >
-                                                    <Card.Img className='image-portada' variant="top" src={episode.thumbnail} />
-                                                    {hoveredEpisode === episode.number && (
-                                                        <div className="play-icon-container">
-                                                            <BsPlay className="play-icon" />
-                                                        </div>
-                                                    )}
-                                                </div>
+                                                <a href={episode.linkEpisode} target="_blank" rel="noopener noreferrer">
+                                                    <div
+                                                        className='image-container'
+                                                        onMouseEnter={() => setHoveredEpisode(episode.number)}
+                                                        onMouseLeave={() => setHoveredEpisode(null)}
+                                                    >
+                                                        <Card.Img className='image-portada' variant="top" src={episode.thumbnail} />
+                                                        {hoveredEpisode === episode.number && (
+                                                            <div className="play-icon-container">
+                                                                <BsPlay className="play-icon" />
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </a>
+
                                             </Col>
                                             <Col md={6}>
                                                 <Card.Body>
@@ -132,6 +141,15 @@ const SeriesList = ({ dataSet }) => {
                                     </Col>
                                 ))}
                             </Row>
+                            {showEpisodes && selectedSeries.episodes.length > visibleEpisodes && (
+                                <Row className='modal-section'>
+                                    <Col md={12} className="text-center">
+                                        <Button variant="info" onClick={handleShowMoreEpisodes}>
+                                            <GoChevronDown />
+                                        </Button>
+                                    </Col>
+                                </Row>
+                            )}
                         </>
                     )}
                 </Modal.Body>

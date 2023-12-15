@@ -15,6 +15,7 @@ export const seriesDataBl = [
         duration: "00:20:30",
         description:
           "Un día, Kakeru —un estudiante al que no le va muy bien en la escuela— le hace una pregunta complicada a su mejor amigo y compañero de clase...",
+        linkEpisode: 'https://vk.com/video740831029_456239545'
       },
       {
         number: 2,
@@ -180,11 +181,45 @@ export const seriesDataBl = [
     episodes: [
       {
         number: 1,
-        thumbnail:
-          process.env.PUBLIC_URL + "/TaikanYohou/Episode1Thumbnail.webp",
-        duration: "60 minutos",
+        thumbnail: process.env.PUBLIC_URL + "/TaikanYohou/Episodio01.webp",
+        duration: "00:23:59",
       },
-      // Agrega más episodios según sea necesario
+      {
+        number: 2,
+        thumbnail: process.env.PUBLIC_URL + "/TaikanYohou/Episodio02.webp",
+        duration: "00:23:59",
+      },
+      {
+        number: 3,
+        thumbnail: process.env.PUBLIC_URL + "/TaikanYohou/Episodio03.webp",
+        duration: "00:23:59",
+      },
+      {
+        number: 4,
+        thumbnail: process.env.PUBLIC_URL + "/TaikanYohou/Episodio04.webp",
+        duration: "00:23:59",
+      },
+      {
+        number: 5,
+        thumbnail: process.env.PUBLIC_URL + "/TaikanYohou/Episodio05.webp",
+        duration: "00:23:59",
+      },
+      {
+        number: 6,
+        thumbnail: process.env.PUBLIC_URL + "/TaikanYohou/Episodio06.webp",
+        duration: "00:23:59",
+      },
+      {
+        number: 7,
+        thumbnail: process.env.PUBLIC_URL + "/TaikanYohou/Episodio07.webp",
+        duration: "00:23:59",
+      },
+      {
+        number: 8,
+        thumbnail: process.env.PUBLIC_URL + "/TaikanYohou/Episodio08.webp",
+        duration: "00:23:59",
+      },
+
     ],
   },
   {

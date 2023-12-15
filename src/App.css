@@ -1,3 +1,44 @@
 body {
     background-color: #181c24;
 }
+
+.mi-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mi-alerta {
+    font-size: 18px;
+    color: #333; /* Color del texto */
+}
+
+.mi-alerta-header {
+    font-size: 24px; /* Tamaño del encabezado */
+    color: #ff6347; /* Color del encabezado (rojo como en las alertas) */
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mi-modal-content {
+    border-radius: 10px;
+    padding: 20px; /* Espaciado interno del contenido */
+    background-color: #fff; /* Color de fondo del modal */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra del modal */
+}
+
+.mi-modal-header {
+    border-bottom: 1px solid #ddd; /* Línea separadora entre el encabezado y el cuerpo */
+    padding-bottom: 10px; /* Espaciado inferior del encabezado */
+}
+
+.mi-modal-close-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    color: #333; /* Color del botón de cierre */
+}

@@ -10,7 +10,7 @@ function CustomNavbar() {
         <Navbar.Brand href="#home">The Insiders X</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="ms-auto align-content-end">
             <Nav.Link href="./index.html">Inicio</Nav.Link>
             <Nav.Link href="./series.html">Series</Nav.Link>
             <Nav.Link href="./movies.html">Peliculas</Nav.Link>
@@ -18,6 +18,7 @@ function CustomNavbar() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+
   );
 }
 
