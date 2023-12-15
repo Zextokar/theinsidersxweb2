@@ -78,7 +78,7 @@ export const seriesDataBl = [
   {
     id: 2,
     title: "My School President",
-    image: process.env.PUBLIC_URL + "/MySchoolPresident/Poster.webp",
+    image: process.env.PUBLIC_URL + "/MySchoolPresident/Poster2.webp",
     description:
       "Gun es el director del club de música de su escuela secundaria y el cantante principal de un grupo musical llamado Chinzhilla. A la misma escuela asiste Tinn, el rival desde siempre de Gun, el hijo del director.",
     date: "02/12/2022",
@@ -228,14 +228,14 @@ export const seriesDataBl = [
     image: process.env.PUBLIC_URL + "/CherryMagic(Thailand)/Poster.webp",
     description:
       "Achi llegó a la edad de 30 años siendo virgen por lo que obtuvo el poder d leer la mente de las personas. Él es un empleado de oficina y accidentalmente toca a Karan, el chico guapo más conocido de la compañía, descubriendo asi que Karan está enamorado de él. Que hará ahora Achi?",
-    date: "11/08/2023",
+    date: "09/12/2023",
     numChapters: 8,
     episodes: [
       {
         number: 1,
         thumbnail:
-          process.env.PUBLIC_URL + "/TaikanYohou/Episode1Thumbnail.webp",
-        duration: "60 minutos",
+          process.env.PUBLIC_URL + "/CherryMagic(Thailand)/Episodio01.webp",
+        duration: "00:45:10",
       },
       // Agrega más episodios según sea necesario
     ],
