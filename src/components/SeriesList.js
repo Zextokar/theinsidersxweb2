@@ -73,7 +73,7 @@ const SeriesList = ({ series }) => {
                                         </Col>
                                         <Col md={6}>
                                             <div>
-                                                <p className="portada-descripcion">{selectedSeries.description}</p>
+                                                <p className="portada-descripcion mt-2">{selectedSeries.description}</p>
                                             </div>
                                         </Col>
                                     </Row>
