@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* Estilos para la tarjeta */
+.card {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para la imagen dentro de la tarjeta */
+.card img {
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Estilos para la superposición de título */
+.card-title-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    color: #fff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.card:hover .card-title-overlay {
+    opacity: 0;
+}
+
+/* Estilos para el cursor al pasar el ratón sobre la tarjeta */
+.card:hover {
+    cursor: pointer;
+}
+
+.modal-section {
+    color: aliceblue;
+    background: linear-gradient(235deg, #252930 0%, rgba(37, 41, 48, 0) 100%);
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #252930;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.portada-descripcion {
+    color: aliceblue;
+    background: linear-gradient(235deg, #252930 0%, rgba(37, 41, 48, 0) 100%);
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #252930;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+i {
+    color: aliceblue;
+    background: linear-gradient(235deg, #26282c 0%, rgba(88, 94, 105, 0) 100%);
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #252930;
+    border-radius: 5px;
+    cursor: default;
+    font-style: normal;
+    text-align: center;
+}
+
+
+.episode-duration {
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    line-height: 1.25em;
+    white-space: nowrap;
+    display: block;
+    background-color: #04080f99;
+    -webkit-backdrop-filter: blur(7.5px);
+    backdrop-filter: blur(7.5px);
+    width: max-content;
+    margin: 10px 0 0;
+    padding: 4px 8px;
+    border-radius: 10px;
+}
+
+.episode-title {
+    color: white;
+    font-size: 20px;
+    line-height: 1.25em;
+    letter-spacing: -.75px;
+    height: 1.25em;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.episode-description {
+    color: white;
+    font-size: 15px;
+    line-height: 1.25em;
+    letter-spacing: -.75px;
+    margin-top: 10px;
+}
+
+.image-portada {
+    position: relative;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #252930;
+    background-size: cover;
+    width: 100%;
+    margin: 0 0 4px;
+    border-radius: 10px;
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-portada {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: filter 0.3s ease-in-out;
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3em;
+    opacity: 0.7;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.play-icon:hover {
+    opacity: 1;
+}

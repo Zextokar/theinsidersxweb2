@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import CustomNavbar from './components/Navbar';
+import SeriesList from './components/SeriesList';
+import seriesData from './components/SeriesData';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <CustomNavbar />
       </header>
+      <main className="container mt-3">
+        <SeriesList series={seriesData} />
+      </main>
     </div>
   );
 }
