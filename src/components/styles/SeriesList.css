@@ -31,8 +31,7 @@ body {
     width: 100%;
     padding: 1rem;
     color: #fff;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-    font-size: 1.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
     font-weight: bold;
     text-align: center;
     transition: opacity 0.3s ease-in-out;
@@ -77,6 +76,20 @@ i {
     cursor: default;
     font-style: normal;
     text-align: center;
+}
+.allow {
+    color: aliceblue;
+    background: linear-gradient(235deg, #5478c0 0%, rgba(255, 255, 255, 0) 100%);
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #252930;
+    border-radius: 5px;
+    cursor: pointer;
+    font-style: normal;
+    text-align: center;
+}
+.card-images{
+    border: 2.5px solid rgb(198, 198, 198);
 }
 
 

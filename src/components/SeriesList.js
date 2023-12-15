@@ -2,11 +2,19 @@
 import React, { useState } from 'react';
 import { Card, Modal, Button, Row, Col } from 'react-bootstrap';
 import { BsPlay } from 'react-icons/bs';
-import './SeriesList.css';
+import './styles/SeriesList.css';
 
-const SeriesList = ({ series }) => {
+// Importa los conjuntos de datos
+import { seriesDataBl, seriesDataToku } from './SeriesData';
+
+const SeriesList = ({ dataSet }) => {
+    // Selecciona el conjunto de datos basado en el prop dataSet
+    const series = dataSet === 'bl' ? seriesDataBl : seriesDataToku;
+
     const [showModal, setShowModal] = useState(false);
     const [selectedSeries, setSelectedSeries] = useState(null);
+    const [hoveredEpisode, setHoveredEpisode] = useState(null);
+    const [showEpisodes, setShowEpisodes] = useState(false);
 
     const handleShowModal = (series) => {
         setSelectedSeries(series);
@@ -16,9 +24,12 @@ const SeriesList = ({ series }) => {
     const handleCloseModal = () => {
         setSelectedSeries(null);
         setShowModal(false);
+        setShowEpisodes(false); // Asegúrate de ocultar los episodios al cerrar el modal
     };
 
-    const [hoveredEpisode, setHoveredEpisode] = useState(null);
+    const handleToggleEpisodes = () => {
+        setShowEpisodes(!showEpisodes);
+    };
 
     return (
         <div>
@@ -26,14 +37,15 @@ const SeriesList = ({ series }) => {
                 {series.map((serie) => (
                     <Card
                         key={serie.id}
-                        className="m-3"
+                        className="m-3 card-images"
                         style={{ width: '18rem', cursor: 'pointer' }}
                         onClick={() => handleShowModal(serie)}
                     >
                         <div style={{ position: 'relative' }}>
                             <Card.Img variant="top" src={serie.image} />
-                            <div className="card-title-overlay">{serie.title}</div>
+                            <div className="card-title-overlay" style={{ fontSize: '20px' }}>{serie.title}</div>
                         </div>
+
                     </Card>
                 ))}
             </div>
@@ -80,8 +92,16 @@ const SeriesList = ({ series }) => {
                                 </Col>
                             </Row>
                             <hr className="text-white" />
+                            <i
+                                variant="info"
+                                onClick={handleToggleEpisodes}
+                                className='allow'
+                            >
+                                {showEpisodes ? 'Ocultar Episodios' : 'Mostrar Episodios'}
+                            </i>
+                            <hr className="text-white" />
                             <Row>
-                                {selectedSeries.episodes.map((episode) => (
+                                {showEpisodes && selectedSeries.episodes.map((episode) => (
                                     <Col key={episode.number} md={12}>
                                         <Row className='modal-section'>
                                             <Col md={4}>
@@ -92,8 +112,8 @@ const SeriesList = ({ series }) => {
                                                 >
                                                     <Card.Img className='image-portada' variant="top" src={episode.thumbnail} />
                                                     {hoveredEpisode === episode.number && (
-                                                        <div className="play-icon">
-                                                            <BsPlay />
+                                                        <div className="play-icon-container">
+                                                            <BsPlay className="play-icon" />
                                                         </div>
                                                     )}
                                                 </div>
@@ -101,7 +121,7 @@ const SeriesList = ({ series }) => {
                                             <Col md={6}>
                                                 <Card.Body>
                                                     <Card.Title className="episode-title">Episodio {episode.number}</Card.Title>
-                                                    <Card.Title className="episode-description">{episode.description}</Card.Title>
+                                                    <Card.Text className="episode-description">{episode.description}</Card.Text>
                                                 </Card.Body>
                                             </Col>
                                             <Col md={2}>
